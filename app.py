@@ -9,7 +9,7 @@ from routes import register_routes
 
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///employee_management.db')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://postgres:postgres123@127.0.0.1:5432/employee_management')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev_secret_key')  # Change in production
     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)  # Session timeout after 30 minutes
